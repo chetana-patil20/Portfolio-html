@@ -1,121 +1,179 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<meta name="description" content="Chetana Patil — Frontend developer. Portfolio showcasing projects, skills and contact information.">
-		<title>Chetana Patil — Frontend Developer</title>
-		<link rel="stylesheet" href="styles.css">
-	</head>
-	<body>
-		<header class="site-header">
-			<div class="container header-inner">
-				<div class="brand">
-					<img class="avatar" src="https://media.istockphoto.com/id/1354842602/photo/portrait-of-a-young-businesswoman-working-on-a-laptop-in-an-office.jpg?s=612x612&w=0&k=20&c=kfP1g2712RiaxsDriIxFo363ARlaL2D591s-22CnIo8=" alt="Chetana Patil">
-					<div>
-						<h1 class="site-title">Chetana Patil</h1>
-						<p class="tagline">Frontend Developer · Designer</p>
-					</div>
-				</div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Professional Portfolio — Chetana Patil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent: #6C63FF;
+      --muted: #6b7280;
+      --bg: #0f172a;
+      --card: #0b1220;
+      --glass: rgba(255,255,255,0.06);
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:#e6eef8; background:linear-gradient(180deg,#07102a 0%, #071026 100%)}
 
-				<nav class="site-nav" aria-label="Main navigation">
-					<a href="#about">About</a>
-					<a href="#projects">Projects</a>
-					<a href="#contact">Contact</a>
-				</nav>
-			</div>
-		</header>
+    /* NAV */
+    .nav{position:fixed;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;z-index:40;background:linear-gradient(180deg, rgba(4,6,15,0.6), rgba(4,6,15,0.15));backdrop-filter: blur(6px);}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:700}
+    .brand .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#00d4ff);display:flex;align-items:center;justify-content:center;color:#021124;font-weight:800}
+    nav a{color:#dbeafe;text-decoration:none;margin-left:18px;font-weight:600}
+    .cta{background:var(--accent);color:white;padding:9px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
-		<main class="container">
-			<section class="hero">
-				<div class="hero-content">
-					<h2>Crafting thoughtful, accessible web experiences.</h2>
-					<p>“I am a motivated computer science student with a strong interest in coding, design, and real-world problem solving.”</p>
-					<p><a class="btn" href="#contact">Get in touch</a> <a class="btn ghost" href="#projects">View projects</a></p>
-				</div>
-				<aside class="hero-meta">
-					<dl>
-						<dt>Location</dt>
-						<dd>Kalaburagi, India</dd>
-						<dt>Availability</dt>
-						<dd>Open for freelance & full-time</dd>
-					</dl>
-				</aside>
-			</section>
+    /* HERO */
+    .hero{height:64vh;min-height:420px;display:grid;place-items:center;position:relative;margin-top:72px;}
+    .hero .bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80');background-size:cover;background-position:center;filter:contrast(1.05) saturate(1.05);}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.55), rgba(2,6,23,0.65));}
+    .hero-inner{position:relative;z-index:5;max-width:1100px;padding:36px 28px;display:flex;gap:28px;align-items:center}
+    .hero-left{flex:1}
+    h1{font-size:clamp(1.8rem, 4vw, 2.8rem);margin:0 0 10px 0;line-height:1.02}
+    p.lead{color:var(--muted);margin:0 0 18px 0}
+    .hero-actions{display:flex;gap:14px}
+    .btn{padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.06);background:transparent;color:#e6eef8}
 
-			<section id="about" class="card">
-				<h3>About</h3>
-				<p>I'm a frontend developer focused on creating accessible, responsive websites. I emphasize semantic markup, fast loading, and interfaces that work for everyone.</p>
-				<div class="skills">
-					<h4>Skills</h4>
-					<ul>
-						<li>HTML & CSS &amp; Basic Python</li>
-						<li>Responsive CSS layouts</li>
-						<li>Git & GitHub</li>
-						<li>Teamwork & Communication</li>
-						<li>Critical Thinking & Creativity</li>
-					</ul>
-				</div>
-			</section>
+    .hero-right{width:260px;background:var(--glass);border-radius:14px;padding:14px;border:1px solid rgba(255,255,255,0.04)}
+    .profile{display:flex;gap:12px;align-items:center}
+    .profile img{width:64px;height:64px;border-radius:12px;object-fit:cover}
+    .profile .meta{font-weight:600}
+    .tags{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+    .tag{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-size:13px}
 
-			<section id="projects">
-				<h3>Selected Projects</h3>
-				<div class="projects">
-					<article class="project card">
-						<img src="data:image/jpeg;base64,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" alt="Project A screenshot">
-						<div class="project-body">
-							<h4>Voice Controlled Robot</h4>
-							<p>The Voice Controlled Robot is an intelligent robotic system that responds to human voice commands to perform specific movements such as moving forward, backward, left, right, and stopping. This project uses a voice recognition interface—typically through a smartphone app or a dedicated speech module—to convert spoken commands into signals that the robot’s microcontroller can understand.</p>
-							<p><a href="#" class="link">View case study</a></p>
-						</div>
-					</article>
+    /* SECTIONS */
+    .container{max-width:1100px;margin:40px auto;padding:0 20px}
+    .title{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card h3{margin:0 0 8px 0}
+    .project-thumb{height:150px;border-radius:8px;overflow:hidden;background:#07102a;display:block}
+    .project-thumb img{width:100%;height:100%;object-fit:cover;display:block}
 
-					<article class="project card">
-						<img src="https://d14qv6cm1t62pm.cloudfront.net/ccbp-website/Blogs/home/software-engineering-projects-image-10.jpg" alt="Project B screenshot">
-						<div class="project-body">
-							<h4>Fingerprint voting system</h4>
-							<p>Fingerprint Based Voting Project is a application where the user is recognized by his finger pattern. Since the finger pattern of each human being is different, the voter can be easily authenticated. The system allow the voter to vote through his fingerprint.</p>
-							<p><a href="#" class="link">Read more</a></p>
-						</div>
-					</article>
+    /* CONTACT */
+    form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    input, textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    textarea{grid-column:1/-1;min-height:120px;resize:vertical}
 
-					<article class="project card">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdbPsO9HzSGxDf0YO9l_WctvqVJZ3kfhsNLQ&s" alt="Project C screenshot">
-						<div class="project-body">
-							<h4>Expense Tracker</h4>
-							<p>"An Expense Tracker is a tool that helps users record, manage, and monitor their daily financial transactions."</p>
-							<p><a href="#" class="link">View details</a></p>
-						</div>
-					</article>
-				</div>
-			</section>
+    /* FOOTER */
+    footer{padding:28px 20px;text-align:center;color:var(--muted);margin-top:40px}
 
-			<section id="contact" class="card contact">
-				<h3>Contact</h3>
-				<p>If you'd like to work together or request my resume, email me at <a href="mailto:patilchetana205@gmail.com">patilchetana205@gmail.com</a>.</p>
-				<form class="contact-form" action="mailto:patilchetana205@gmail.com" method="post" enctype="text/plain">
-					<label>
-						Your name
-						<input type="text" name="name" required>
-					</label>
-					<label>
-						Email
-						<input type="email" name="email" required>
-					</label>
-					<label>
-						Message
-						<textarea name="message" rows="5" required></textarea>
-					</label>
-					<p><button class="btn" type="submit">Send message</button></p>
-				</form>
-			</section>
-		</main>
+    /* RESPONSIVE */
+    @media (max-width:960px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero-right{display:none}
+    }
+    @media (max-width:640px){
+      .nav{padding:12px}
+      nav a{display:none}
+      .hero{height:auto;padding:60px 0}
+      .hero-inner{flex-direction:column;align-items:flex-start}
+      .grid{grid-template-columns:1fr}
+      form{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">
+      <div class="logo">YP</div>
+      <div>
+        <div style="font-size:14px;">Your Name</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:-4px;">Frontend Developer</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#contact">Hire Me</a>
+    </nav>
+  </header>
 
-		<footer class="site-footer">
-			<div class="container">
-				<small>© 2025 Chetana Patil — Built with HTML &amp; CSS</small>
-			</div>
-		</footer>
-	</body>
+  <section class="hero">
+    <div class="bg" aria-hidden></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1>Designing beautiful, fast, and accessible web experiences.</h1>
+        <p class="lead">I’m <strong>Chetana Patil</strong> — a frontend developer who builds elegant interfaces and fast performant websites. I focus on clean UI, accessibility and modern front-end tooling.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#projects" style="background:transparent;border:1px solid rgba(255,255,255,0.06);">View Projects</a>
+          <a class="btn btn-ghost" href="#contact">Let's talk</a>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="profile">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=60" alt="Your portrait">
+          <div class="meta">
+            <div style="font-weight:800">Chetana Patil</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:4px;">UI Engineer • React • Design Systems</div>
+          </div>
+        </div>
+        <div class="tags">
+          <div class="tag">React</div>
+          <div class="tag">TypeScript</div>
+          <div class="tag">Accessibility</div>
+          <div class="tag">Performance</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <section id="about" class="container">
+      <div class="title">
+        <h2>About me</h2>
+        <div style="color:var(--muted);font-size:14px">Available for freelance & full-time</div>
+      </div>
+      <div class="card">
+        <p>Hi — I’m a frontend developer based in India. I specialize in building accessible, responsive web applications using modern tools like React, TypeScript and modern CSS. I enjoy collaborating with designers and backend engineers to ship delightful product experiences.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <div class="title"><h2>Selected projects</h2><div style="color:var(--muted);font-size:14px">A few highlights</div></div>
+      <div class="grid">
+        <article class="card">
+          <div class="project-thumb"><img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=1200&q=60" alt="Project 1"></div>
+          <h3>Expense Tracker</h3>
+          <p style="color:var(--muted);">A simple, mobile-first finance tracker with charts and export to CSV.</p>
+        </article>
+
+        <article class="card">
+          <div class="project-thumb"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=60" alt="Project 2"></div>
+          <h3>Portfolio CMS</h3>
+          <p style="color:var(--muted);">Static site generator + CMS allowing non-technical updates to content.</p>
+        </article>
+
+        <article class="card">
+          <div class="project-thumb"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=60" alt="Project 3"></div>
+          <h3>Voice Controlled Robot</h3>
+          <p style="color:var(--muted);">Prototype voice-controlled robotics demo for hands-free control.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="container" style="margin-top:28px">
+      <div class="title"><h2>Contact</h2><div style="color:var(--muted);font-size:14px">Let's build something together</div></div>
+      <div class="card">
+        <form onsubmit="event.preventDefault();alert('Thanks! I will reply soon.');">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Tell me about your project" required></textarea>
+          <button class="btn" style="grid-column:1/-1;justify-self:end;background:var(--accent);border:none;color:#021124;padding:12px 18px;border-radius:10px">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="max-width:1100px;margin:0 auto;padding:0 20px">© <span id="year"></span> Your Name — Built with ❤️ • <span style="color:var(--muted)">UI/UX • Frontend</span></div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
-
